@@ -32,3 +32,13 @@ steps:
   inputs:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'mySubscriptionLearning (842ba584-879a-49d1-b43d-0fb596807e70)'
+    appType: 'webApp'
+    WebAppName: 'ContozooAzDevOpsWebApp'
+    deployToSlotOrASE: true
+    ResourceGroupName: 'ContozooWebAppMVC20211102113841ResourceGroup'
+    SlotName: 'production'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
